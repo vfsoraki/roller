@@ -3,7 +3,7 @@ Simple role management, with resource scope management, for Laravel.
 
 This package is heavily inspired by [rolify](https://github.com/RolifyCommunity/rolify).
 
-** This package is in alpha state, which means incomplete features and possible bugs. Don't use it for production. **
+**This package is in alpha state, which means incomplete features and possible bugs. Don't use it for production.**
 
 At the end of this file, there is a todo part that has some ideas for making this package better.
 
@@ -24,18 +24,18 @@ A role is a capability a use has, like `admin` or `read` or `write`. Where a rol
 by this methods of this package, you may provide a `Collection` or array of `VFSoraki\Roller\Role` models or simple
 strings of role names, or even just a simple string of role name.
 
-A `Resource` is a class that you want to enforce a role on it. For example, suppose you have a `Post` class. You
-want to allow owner user of `Post` to do anything to it. You simple give `owner` role on the `Post` created by
-user to that user. You also have an `admin` role that has access to every `Post`. Also, you have `editor` users
-who can see any `Post` and may edit them, but you don't want them to delete `Post`s. You simply have `owner`, `admin`
-and `editor` roles, and set them globally or per-`Post` when appropriate. Then when a user wants to edit a `Post`,
-you check if user has `admin` or `owner` or `editor` role on `Post`.
+A resource is a class that you want to enforce a role on it. For example, suppose you have a post class. You
+want to allow owner user of post to do anything to it. You simple give `owner` role on the post created by
+user to that user. You also have an `admin` role that has access to every post. Also, you have `editor` users
+who can see any post and may edit them, but you don't want them to delete posts. You simply have `owner`, `admin`
+and `editor` roles, and set them globally or per-post when appropriate. Then when a user wants to edit a post,
+you check if user has `admin` or `owner` or `editor` role on post.
 
 ## Hierarchical Roles
 This system is designed to be hierarchical, which means if a user has `editor` role globally he/she also has `editor`
-role on any `Resource`.
+role on any resource.
 
-Similarly, if a user has `editor` role on `Post` model-types, he has `editor` role on every instance created
+Similarly, if a user has `editor` role on post model-types, he has `editor` role on every instance created
 before or after creating this user or granting it `editor` role.
 
 
